@@ -1,5 +1,6 @@
 package com.Workout.Exception;
 
+
 public class WorkoutNotFound {
 
     private String message;

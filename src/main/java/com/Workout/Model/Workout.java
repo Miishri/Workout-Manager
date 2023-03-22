@@ -3,31 +3,38 @@ package com.Workout.Model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Workouts")
+@Table()
 public class Workout {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "workout_name")
+    @Column()
     private String name;
 
-    @Column(name = "workout_reps")
-    private int reps;
+    @Column()
+    private String reps;
 
-    @Column(name = "workout_date")
+    @Column()
+    private Integer weight;
+
+    @Column()
     private String date = new java.util.Date().toString();
 
     public Workout(){}
-    public Workout(long id, String name, int reps) {
+
+    public Workout(Long id, String name, String reps, Integer weight) {
         this.id = id;
         this.name = name;
         this.reps = reps;
+        this.weight = weight;
     }
-    public Workout(String name, int reps) {
+
+    public Workout(String name, String reps, Integer weight) {
         this.name = name;
         this.reps = reps;
+        this.weight = weight;
     }
 
     public long getId() {
@@ -45,11 +52,11 @@ public class Workout {
     public void setName(String name) {
         this.name = name;
     }
-    public int getReps() {
+    public String getReps() {
         return reps;
     }
 
-    public void setReps(int reps) {
+    public void setReps(String reps) {
         this.reps = reps;
     }
 
@@ -57,8 +64,16 @@ public class Workout {
         return date;
     }
 
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
     @Override
     public String toString() {
-        return this.name + " " + this.reps + " " + this.date;
+        return this.name + " " + this.reps + " " + this.weight + " " + this.date;
     }
 }

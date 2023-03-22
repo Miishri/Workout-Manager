@@ -12,7 +12,7 @@ public class ExceptionHandler {
     @org.springframework.web.bind.annotation.ExceptionHandler(WorkoutNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
-    public WorkoutNotFound Handler (WorkoutNotFoundException workoutException) {
+    public WorkoutNotFound Handler(WorkoutNotFoundException workoutException) {
 
         WorkoutNotFound workoutNotFound = new WorkoutNotFound();
         workoutNotFound.setMessage("Your workout does not exist!");
@@ -20,10 +20,10 @@ public class ExceptionHandler {
         return workoutNotFound;
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(WorkoutNotFoundException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(WorkoutNotAcceptedException.class)
     @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
     @ResponseBody
-    public WorkoutNotFound Handler (WorkoutNotAcceptedException workoutException) {
+    public WorkoutNotFound Handler(WorkoutNotAcceptedException workoutException) {
 
         WorkoutNotFound workoutNotFound = new WorkoutNotFound();
         workoutNotFound.setMessage("Your workout is not acceptable!");
